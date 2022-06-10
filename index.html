@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+<nav class="navbar">
+    <ul class="navbar__menu">
+        <li><a href="자기소개.html"  >자기소개</a></li>
+        <li><a href="우리집 강아지.html" >우리집 강아지</a></li>
+        <li><a href="Roadmap page.html"  >로드맵 페이지</a></li>
+        <li><a href="회원가입.html" >회원가입</a></li>
+        
+
+    </ul>
+</nav>
+
+    <div class="wrap">
+      <h1>
+        <span class="material-icons">flight_land</span>
+    </h1>
+        <p id="dynamic" class="lg-text">
+            
+        </p>
+    </div>
+   
+   
+   <script>
+        let target = document.querySelector("#dynamic");
+
+function randomString(){
+    let stringArr = ["Landing page","Landing page","Landing page",
+     "Landing page", "Landing page"];
+    let selectString = stringArr[Math.floor(Math.random() * stringArr.length)];
+    let selectStringArr = selectString.split("");
+    
+    return selectStringArr;
+}
+
+
+function resetTyping(){
+    target.textContent = "";
+    dynamic(randomString());
+}
+
+
+function dynamic(randomArr){
+    if(randomArr.length > 0){
+        target.textContent += randomArr.shift();
+        setTimeout(function(){
+            dynamic(randomArr);
+        },80);
+    }else{
+        setTimeout(resetTyping, 3000);
+    }
+}
+
+
+dynamic(randomString());
+
+
+function blink(){
+    target.classList.toggle("active");
+}
+setInterval(blink, 500);
+ 
+
+    </script>
+
+</body>
+</html>

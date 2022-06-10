@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: 'Soruce Sans Pro'; 
+}
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    justify-content : center;
+    background-color: silver;
+    padding: 10px 12px;
+}
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    color: #389FF1;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.navbar__menu li {
+    padding: 5px 60px;
+}
+
+.navbar__menu li:hover{
+    background-color: rgb(226, 226, 21);
+    border-radius: 4px;
+}
+
+.selfbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(2, 6, 65);
+    padding: 5px 20%;
+}
+.selfbar__menu{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: larger;
+}
+.selfbar__menu li {
+    padding: 15px 35px;
+}
+.selfbar__menu li:hover{
+    background-color: goldenrod;;
+    border-radius: 4px;
+    color: red;
+}
+.roadbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px 15%;
+}
+.roadbar__menu{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: larger;
+}
+.roadbar__menu li{
+    padding: 2% 85px;
+}
+.roadbar__menu li:hover{
+    background-color: bisque;
+    border-radius: 4px;
+    color: black;
+}
+
+.selfbar__icons{
+    list-style: none;
+    color:rgba(249, 101, 9, 0.963);
+    display: flex;
+    justify-content : center;
+    size: 500;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #389FF1;
+}
+
+.wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.material-icons{
+    font-size: 10rem ;
+}
+
+.lg-text{
+    font-size: 2rem;
+    font-weight:bold;
+    margin-bottom: 5px; 
+}
+
+#dynamic{
+    position: relative;
+    display: inline-block;
+}
+#dynamic::after{
+    content:"";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 4px;
+    height: 100%;
+    background-color: white;
+}
+
+#dynamic.active::after{
+    display: none;
+}
+

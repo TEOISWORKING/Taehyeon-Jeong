@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <title>
+           회원가입
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+       
+      </head>
+      <body>
+        <style>
+            * {
+  margin:0;
+  padding:0;
+}
+body {
+  background-color:#0088ff;
+  font-family: 'Raleway', sans-serif;
+}
+
+#container {
+  position:relative;
+  width:80%;
+  margin:5% auto;
+  background-color:black;
+  box-shadow: -5px -5px 5px lightcyan,5px -5px 5px lightcyan
+}
+#container > nav {
+  width:100%;
+  display:flex;
+  max-height:60px;
+}
+#logo {
+  line-height:60px;
+  font-size:30px;
+  padding: 0 50px;
+  color: gainsboro;
+  letter-spacing:2px;
+  }
+#container > nav > ul {
+  margin:0;
+  list-style-type:none;
+  display:flex;
+  position:absolute;
+    right:50px;
+}
+#container > nav > ul > li {
+  line-height:60px;
+  margin: 0 0px;
+  padding:0;
+  text-align:center;
+  display:inline-block;
+  
+  min-width:120px;
+
+} 
+#container > nav > ul > li > a {
+  position:relative;
+  margin: 0 20px;
+    color: white;
+}
+#container > nav > ul > li:hover {
+  border-bottom: 2px solid black;
+  background-color: rgb(212, 212, 31);
+  color: black;
+}
+
+a {
+  text-decoration:none;
+
+}
+
+#container > nav > ul > li > div {
+  position:absolute;
+  padding: 0 10px;
+  
+  background-color:black;
+  display:none;
+  background-color:aliceblue;
+  min-width:100px;
+}
+
+#container > nav > ul > li > div > ul {
+  margin:0px 0 10px 0;
+  padding:0;
+  list-style:none;
+}
+#u_a_c {
+  position:relative;
+  width:100%;
+}
+
+        </style>
+      
+      
+    
+    
+    <div id="container">
+
+      <nav>
+        <div id="logo">
+          회원가입
+        </div>
+        <ul>
+          <li><a href="index.html">Landing page</a></li>
+          <li><a href="자기소개.html">자기소개</a></li>
+          <li><a href="우리집 강아지.html">우리집 강아지</a></li>
+          <li><a href="Roadmap page.html">로드맵</a></li>
+          </ul>
+      </nav>
+    </div>
+<style>
+    .container{
+        color: lightgrey;
+    }
+</style>
+      <div class="container">
+        <div class="col-sm-6"  >
+        <h2>회원가입</h2>
+        <br><br>
+        <form action="#">
+            <div class="form-group">
+                <label for="name">이름:</label>
+                <input type="text" class="form-control" id="name" placeholder="이름을 입력하세요" name="email">
+              </div>
+              <br>
+          <div class="form-group">
+            <label for="email">이메일:</label>
+            <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요" name="email">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="pwd">비밀번호:</label>
+            <input type="password" class="form-control" id="psw" placeholder="비밀번호를 입력하세요" name="pwd">
+          </div>
+          <br>
+         
+          <button type="button" onclick="saveData()" id="save_btn" class="btn btn-default">가입하기</button>
+        </div>
+        </form>
+
+        
+      <div class="col-sm-6" >
+        <h2 style="text-align: center;">회원목록</h2>
+        <br><br><br>
+        <div class="row">
+          <div class="col-sm-4" style="background-color: royalblue;padding: 10px;">이름</div>
+          <div class="col-sm-4" style="background-color: #ff914d;padding: 10px;">이메일</div>
+          <div class="col-sm-4" style="background-color: gray;padding: 10px;">비밀번호</div>
+
+        </div>
+        <br>
+        <div id="showUsers"></div>
+      </div>
+      <br>
+      </div>
+      <br>
+      </body>
+     
+     
+  
+     <script>
+        showData();
+function saveData()
+{
+let name,email,psw;
+name=document.getElementById("name").value;
+email=document.getElementById("email").value;
+psw=document.getElementById("psw").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.email==email}))
+{
+  alert("중복된 정보입니다.");
+}
+else
+{
+  user_records.push({
+  "name":name,
+  "email":email,
+  "psw":psw
+})
+localStorage.setItem("users",JSON.stringify(user_records));
+}
+showData();
+}
+
+function showData()
+{
+  document.getElementById("showUsers").innerHTML="";
+  let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+  if(user_records)
+  {
+    for(let i=0;i<user_records.length;i++)
+    {
+      let addDiv=document.createElement('div');
+  addDiv.className="row";
+  addDiv.innerHTML='  <div class="col-sm-4" style="padding: 10px;">'+user_records[i].name+'</div><div class="col-sm-4" style="padding: 10px;">'+user_records[i].email+'</div><div class="col-sm-4" style="padding: 10px;">'+user_records[i].psw+'</div>';
+  document.getElementById("showUsers").appendChild(addDiv);
+
+    }
+  }
+  }
+  // window.localStorage.clear();
+          </script>
+      </html>
+      
